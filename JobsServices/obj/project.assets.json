@@ -447,23 +447,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hpdeveloper1\\.nuget\\packages\\": {},
+    "C:\\Users\\AVISHEK JANA\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PWC_HIERING_POJ_2025_DOTNET_MICROSERVICES\\JobMicroservices\\JobsServices\\JobsServices.csproj",
+      "projectUniqueName": "D:\\Dotnet\\PwcProjectr\\jobServices\\JobsServices\\JobsServices.csproj",
       "projectName": "JobsServices",
-      "projectPath": "D:\\PWC_HIERING_POJ_2025_DOTNET_MICROSERVICES\\JobMicroservices\\JobsServices\\JobsServices.csproj",
-      "packagesPath": "C:\\Users\\hpdeveloper1\\.nuget\\packages\\",
-      "outputPath": "D:\\PWC_HIERING_POJ_2025_DOTNET_MICROSERVICES\\JobMicroservices\\JobsServices\\obj\\",
+      "projectPath": "D:\\Dotnet\\PwcProjectr\\jobServices\\JobsServices\\JobsServices.csproj",
+      "packagesPath": "C:\\Users\\AVISHEK JANA\\.nuget\\packages\\",
+      "outputPath": "D:\\Dotnet\\PwcProjectr\\jobServices\\JobsServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\hpdeveloper1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\AVISHEK JANA\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
