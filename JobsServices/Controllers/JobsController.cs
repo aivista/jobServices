@@ -1,43 +1,51 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using JobServices.data;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using JobsServices.models.Dto;
+using Microsoft.AspNetCore.Mvc;
 
-namespace JobsServices.Controllers
+namespace JobServices.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class JobsController : ControllerBase
     {
-        // GET: api/<JobsController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly AppDBContext _db;
+        private readonly IMapper _mapper;
+        private ResponseDto _response;
+
+        public JobsController(AppDBContext db, IMapper mapper)
         {
-            return new string[] { "value1", "value2" };
+            _db = db;
+            _mapper = mapper;
+            _response = new ResponseDto();
         }
 
-        // GET api/<JobsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{hiringManagerId}")]
+        public IActionResult GetJobsByHiringManager(string hiringManagerId)
         {
-            return "value";
-        }
+            try
+            {
+                var jobs = _db.Jobs
+                    .Where(job => job.HiringManagerId == hiringManagerId)
+                    .ToList();
 
-        // POST api/<JobsController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+                if (jobs == null || jobs.Count == 0)
+                {
+                    _response.IsSuccess = false;
+                    _response.Message = "No jobs found for the specified HiringManagerId.";
+                    return NotFound(_response);
+                }
 
-        // PUT api/<JobsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+                _response.Result = _mapper.Map<List<JobDto>>(jobs);
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
 
-        // DELETE api/<JobsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok(_response);
         }
     }
 }
