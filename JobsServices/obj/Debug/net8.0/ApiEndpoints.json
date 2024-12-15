@@ -14,5 +14,51 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JobsServices.Controllers.LatestStatusController",
+    "Method": "Get",
+    "RelativePath": "api/Jobs/LatestStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "JobsServices.models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JobsServices.Controllers.LatestStatusController",
+    "Method": "GetLatestStatusesByJobId",
+    "RelativePath": "api/Jobs/LatestStatus/ShortListed/{jobId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "jobId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JobsServices.models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

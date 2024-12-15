@@ -5,7 +5,7 @@ using JobsServices.models.Dto;
 
 namespace JobsServices.Controllers
 {
-    [Route("api/shortlisted/[controller]")]
+    [Route("api/Jobs/[controller]")]
     [ApiController]
     public class LatestStatusController : ControllerBase
     {
@@ -40,7 +40,7 @@ namespace JobsServices.Controllers
         
 
         // Get latest statuses by JobId
-        [HttpGet("job/{jobId:int}")]
+        [HttpGet("ShortListed/{jobId:int}")]
         public ResponseDto GetLatestStatusesByJobId(int jobId)
         {
             try

@@ -7,6 +7,9 @@ namespace JobsServices.models.Entity
     public class latest_statuses
     {
         public int JobId { get; set; } // Example column, replace with actual columns
+        public int CandidateId { get; set; }
+        public string? latestrole { get; set; }
+        public string? education { get; set; }
         public string? first_name { get; set; } // Example column, replace with actual columns
                                                // Add properties for all columns in the view
         public string? middle_name { get; set; }
