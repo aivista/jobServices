@@ -16,6 +16,11 @@ namespace JobsServices
             CreateMap<latest_statuses, latest_statusDto >().ReverseMap();
 
             CreateMap<candidate_applied, candidate_appliedDto>().ReverseMap();
+
+            CreateMap<upcoming_interviews, upcoming_interviewDto>().ReverseMap();
+
+            CreateMap<appliedjob_by_candidate_id, appliedjob_by_candidate_idDto>().ReverseMap();
+
         }
     }
 }
