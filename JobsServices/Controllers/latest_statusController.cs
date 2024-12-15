@@ -2,6 +2,7 @@
 using JobServices.data;
 using AutoMapper;
 using JobsServices.models.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobsServices.Controllers
 {
@@ -89,6 +90,64 @@ namespace JobsServices.Controllers
 
 
                    
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.Message = ex.Message; // Handle exceptions
+            }
+            return _response;
+        }
+        [HttpGet("upcoming_interview/{jobId}/{hiringManagerId}")]
+        public async Task<ResponseDto> GetCandidateByJobIdAndHiringManagerId(int jobId, string hiringManagerId)
+        {
+            try
+            {
+                // Filter by JobId and HiringManagerId
+                var candidate = await _db.upcoming_Interviews
+                                .Where(c => c.JobId == jobId && c.HiringManagerId == hiringManagerId)
+                                .FirstOrDefaultAsync();
+
+                if (candidate == null)
+                {
+                    
+                    _response.Message = "Data Not Found";
+                   
+                }
+
+               
+                _response.Result = _mapper.Map<upcoming_interviewDto>(candidate);
+               
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+
+            return _response;
+        }
+        [HttpGet("jobs/appliedjobs_by_candidate/{jobId:int}")]
+        public ResponseDto GetJobsCandidateApplied(int jobId)
+        {
+            try
+            {
+                var details = _db.appliedjob_By_Candidate_Ids // Replace `AnotherViewDetails` with the actual DbSet for your view
+                                 .Where(d => d.JobId == jobId)
+                                 .ToList();
+
+                if (details == null || !details.Any())
+                {
+
+                    _response.Message = $"No details found for JobId {jobId}";
+                }
+                else
+                {
+                    _response.Result = _mapper.Map<List<appliedjob_by_candidate_idDto>>(details); // Replace `AnotherViewDto` with your actual DTO
+
+
+
                 }
             }
             catch (Exception ex)
