@@ -14,6 +14,8 @@ namespace JobsServices
 
             // Mapping for LatestStatus and LatestStatusDto
             CreateMap<latest_statuses, latest_statusDto >().ReverseMap();
+
+            CreateMap<candidate_applied, candidate_appliedDto>().ReverseMap();
         }
     }
 }
