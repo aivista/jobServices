@@ -1314,19 +1314,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SRoy\\.nuget\\packages\\": {}
+    "C:\\Users\\SUBHASRI\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\dot net\\project\\jobservice\\jobServices\\JobsServices\\JobsServices.csproj",
+      "projectUniqueName": "E:\\job_services\\jobServices\\JobsServices\\JobsServices.csproj",
       "projectName": "JobsServices",
-      "projectPath": "E:\\dot net\\project\\jobservice\\jobServices\\JobsServices\\JobsServices.csproj",
-      "packagesPath": "C:\\Users\\SRoy\\.nuget\\packages\\",
-      "outputPath": "E:\\dot net\\project\\jobservice\\jobServices\\JobsServices\\obj\\",
+      "projectPath": "E:\\job_services\\jobServices\\JobsServices\\JobsServices.csproj",
+      "packagesPath": "C:\\Users\\SUBHASRI\\.nuget\\packages\\",
+      "outputPath": "E:\\job_services\\jobServices\\JobsServices\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SRoy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SUBHASRI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1390,7 +1390,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

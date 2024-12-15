@@ -9,7 +9,11 @@ namespace JobsServices
     {
         public MappingConfig()
         {
+            // Mapping for Job and JobDto
             CreateMap<Job, JobDto>().ReverseMap();
+
+            // Mapping for LatestStatus and LatestStatusDto
+            CreateMap<latest_statuses, latest_statusDto >().ReverseMap();
         }
     }
 }
