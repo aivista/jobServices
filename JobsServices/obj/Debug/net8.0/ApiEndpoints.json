@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "JobServices.Controllers.JobsController",
+    "ContainingType": "JobServices.Controllers.JobsServicesController",
     "Method": "GetJobsByHiringManager",
-    "RelativePath": "api/Jobs/{hiringManagerId}",
+    "RelativePath": "api/JobsServices/jobs/{hiringManagerId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -16,29 +16,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "JobsServices.Controllers.LatestStatusController",
-    "Method": "Get",
-    "RelativePath": "api/Jobs/LatestStatus/jobs/allcandidates",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "JobsServices.models.Dto.ResponseDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "JobsServices.Controllers.LatestStatusController",
+    "ContainingType": "JobServices.Controllers.JobsServicesController",
     "Method": "GetDetailsCandidateApplied",
-    "RelativePath": "api/Jobs/LatestStatus/jobs/applied_candidates/{jobId}",
+    "RelativePath": "api/JobsServices/jobs/appliedJobs/{jobId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -62,9 +42,35 @@
     ]
   },
   {
-    "ContainingType": "JobsServices.Controllers.LatestStatusController",
+    "ContainingType": "JobServices.Controllers.JobsServicesController",
+    "Method": "GetJobsCandidateApplied",
+    "RelativePath": "api/JobsServices/jobs/appliedjobsByCandidate/{candidateID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "candidateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JobsServices.models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JobServices.Controllers.JobsServicesController",
     "Method": "GetLatestStatusesByJobId",
-    "RelativePath": "api/Jobs/LatestStatus/ShortListed/{jobId}",
+    "RelativePath": "api/JobsServices/jobs/ShortListed/{jobId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -72,6 +78,37 @@
       {
         "Name": "jobId",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JobsServices.models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JobServices.Controllers.JobsServicesController",
+    "Method": "GetCandidateByJobIdAndHiringManagerId",
+    "RelativePath": "api/JobsServices/jobs/upcomingInterview/{jobId}/{hiringManagerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "jobId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "hiringManagerId",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

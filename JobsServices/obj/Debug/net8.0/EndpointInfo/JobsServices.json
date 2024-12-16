@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Jobs/{hiringManagerId}": {
+    "/api/JobsServices/jobs/{hiringManagerId}": {
       "get": {
         "tags": [
-          "Jobs"
+          "JobsServices"
         ],
         "parameters": [
           {
@@ -27,39 +27,10 @@
         }
       }
     },
-    "/api/Jobs/LatestStatus/jobs/allcandidates": {
+    "/api/JobsServices/jobs/ShortListed/{jobId}": {
       "get": {
         "tags": [
-          "LatestStatus"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Jobs/LatestStatus/ShortListed/{jobId}": {
-      "get": {
-        "tags": [
-          "LatestStatus"
+          "JobsServices"
         ],
         "parameters": [
           {
@@ -96,14 +67,102 @@
         }
       }
     },
-    "/api/Jobs/LatestStatus/jobs/applied_candidates/{jobId}": {
+    "/api/JobsServices/jobs/appliedJobs/{jobId}": {
       "get": {
         "tags": [
-          "LatestStatus"
+          "JobsServices"
         ],
         "parameters": [
           {
             "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/JobsServices/jobs/upcomingInterview/{jobId}/{hiringManagerId}": {
+      "get": {
+        "tags": [
+          "JobsServices"
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "hiringManagerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/JobsServices/jobs/appliedjobsByCandidate/{candidateID}": {
+      "get": {
+        "tags": [
+          "JobsServices"
+        ],
+        "parameters": [
+          {
+            "name": "candidateID",
             "in": "path",
             "required": true,
             "schema": {
