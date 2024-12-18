@@ -57,7 +57,6 @@ namespace JobServices.data
 
             modelBuilder.Entity<appliedjob_by_candidate_id>()
                .ToView("V_HM_CANDIDATE_JOB_MAPPING", schema: "ADANI_TALENT") // Map view with schema
-
                .HasNoKey(); // Views generally do not have primary keys
 
         }

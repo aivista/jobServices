@@ -18,6 +18,7 @@ namespace JobsServices.models.Entity
         public string? experience { get; set; }
         public string? skills { get; set; }
         public string? LatestStatus { get; set; }
+        public string? email { get; set; }
     }
 }
 

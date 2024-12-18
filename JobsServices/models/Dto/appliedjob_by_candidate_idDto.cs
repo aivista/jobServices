@@ -8,6 +8,7 @@
         public string? Role { get; set; }
         public int CandidateId { get; set; }
         public string? LatestStatus { get; set; }
+        public string? button_value { get; set; }
 
 
     }

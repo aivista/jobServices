@@ -15,19 +15,30 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AnyOrigin", policyBuilder =>
+    {
+
+        policyBuilder.SetIsOriginAllowed(_ => true) // Allows any origin
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+
+    });
+});
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("AnyOrigin");
 
 app.Run();
