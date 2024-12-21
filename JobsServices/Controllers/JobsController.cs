@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using JobServices.data;
 using JobsServices.models.Dto;
 using JobsServices.models.Entity;
@@ -134,6 +135,7 @@ namespace JobServices.Controllers
 
             return _response;
         }
+
         [HttpGet("appliedjobsByCandidate/{candidateID:int}")]
         public ResponseDto GetJobsCandidateApplied(int candidateID)
         {
@@ -161,6 +163,41 @@ namespace JobServices.Controllers
                 _response.IsSuccess = false;
                 _response.Message = ex.Message; // Handle exceptions
             }
+            return _response;
+        }
+
+        [HttpPost("getInterViewSechdule")]
+        public async Task<ResponseDto> GetInterviewSechdule([FromBody] RequestDTO request)
+        {
+            try {
+
+                if (request == null || request.jobId == 0 || request.CandidateId == 0)
+                {
+                    _response.Message = "Invalid input data.";
+                    _response.IsSuccess = false;
+                    return _response;
+                }
+
+                IEnumerable<upcoming_interviews> candidate = await _db.upcoming_Interviews
+                                .Where(c => c.JobId == request.jobId && c.CandidateId == request.CandidateId).ToListAsync();
+                if (candidate == null)
+            {
+
+                _response.Message = "Data Not Found";
+
+            }
+
+
+            _response.Result = _mapper.Map<IEnumerable<upcoming_interviewDto>>(candidate);
+
+
+        }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+
             return _response;
         }
 

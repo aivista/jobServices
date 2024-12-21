@@ -69,6 +69,32 @@
   },
   {
     "ContainingType": "JobServices.Controllers.JobsServicesController",
+    "Method": "GetInterviewSechdule",
+    "RelativePath": "api/JobsServices/jobs/getInterViewSechdule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "JobsServices.models.Dto.RequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JobsServices.models.Dto.ResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JobServices.Controllers.JobsServicesController",
     "Method": "GetLatestStatusesByJobId",
     "RelativePath": "api/JobsServices/jobs/ShortListed/{jobId}",
     "HttpMethod": "GET",
