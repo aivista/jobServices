@@ -60,13 +60,24 @@ namespace JobServices.Controllers
 
                 if (statuses == null || !statuses.Any())
                 {
-
                     _response.Message = $"No statuses found for JobId {jobId}";
-
+                    return _response;
                 }
 
-                _response.Result = _mapper.Map<List<latest_statusDto>>(statuses);
+                // Define custom ordering for statuses
+                var statusOrder = new Dictionary<string, int>
+        {
+            { "Interview Scheduled", 0 },
+            { "Assessment Pending", 1 },
+            { "AI Screening Pending", 2 }
+        };
 
+                var orderedStatuses = statuses
+                    .OrderBy(s => statusOrder.ContainsKey(s.LatestStatus) ? statusOrder[s.LatestStatus] : 3) // Sort by status order
+                    .ThenByDescending(s => s.Star) // Sort by star rating descending
+                    .ToList();
+
+                _response.Result = _mapper.Map<List<latest_statusDto>>(orderedStatuses);
             }
             catch (Exception ex)
             {
