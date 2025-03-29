@@ -67,9 +67,11 @@ namespace JobServices.Controllers
                 // Define custom ordering for statuses
                 var statusOrder = new Dictionary<string, int>
         {
-            { "Interview Scheduled", 0 },
-            { "Assessment Pending", 1 },
-            { "AI Screening Pending", 2 }
+            { "Selected", 0 },
+            { "Interview Scheduled", 1 },
+            { "Assessment Pending", 2 },
+            { "AI Screening Pending", 3 },
+            { "Not Selected in Interview", 4 }
         };
 
                 var orderedStatuses = statuses
